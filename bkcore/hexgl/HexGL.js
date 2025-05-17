@@ -168,6 +168,9 @@ bkcore.hexgl.HexGL.prototype.initGameplay = function()
 		onFinish: function() {
 			self.components.shipControls.terminate();
 			self.displayScore(this.finishTime, this.lapTimes);
+			console.log("Finished time (ms):", this.finishTime);
+			fetch(`https://afaccount.pythonanywhere.com/hex?time=${this.finishTime}`);
+			
 		}
 	});
 
